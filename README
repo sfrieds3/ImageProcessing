@@ -1,0 +1,22 @@
+# Shap Recognition
+
+Ouline:
+
+The inital goal is to be able to determine if a shape is a rectangle or a circle.
+
+Initially, I will tell the program what characteristics are of a square and a circle. Future state will hopefully be able to process a whole bunch of images and determine what shape they represent.
+
+## Square
+
+we want to be able to identify the *straight* lines that make up the edge of the square
+
+     xxxxxxxxxxxxxxxx
+     x              x
+     x              x
+     x              x
+     x              x
+     x              x
+     xxxxxxxxxxxxxxxx
+
+## Circle
+

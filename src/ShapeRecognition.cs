@@ -22,21 +22,40 @@ namespace ArtificialApplication
         public static void ReadImage()
         {
             string projectDir = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
-            string remainPath = "\\assets\\square\\BlackSquare.png";
-            string square = String.Concat(projectDir, remainPath);
 
-            Console.WriteLine(square);
+            string squarePath = "\\assets\\square\\BlackSquare.png";
+            string square = String.Concat(projectDir, squarePath);
+            Bitmap squareBitmap = new Bitmap(square);
 
-            Bitmap bitmap = new Bitmap(square);
+            string circlePath = "\\assets\\circle\\BlackCircle.png";
+            string circle = String.Concat(projectDir, circlePath);
+            Bitmap circleBitmap = new Bitmap(circle);
 
-            for (int i = 0; i < bitmap.Width; i++)
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(String.Concat(projectDir, "\\square.txt")))
             {
-                for (int j = 0; j < bitmap.Height; j++)
+                for (int i = 0; i < squareBitmap.Width; i++)
                 {
-                    Color color = bitmap.GetPixel(i, j);
-                    Console.WriteLine("color: {0}", color);
+                    file.WriteLine("LINE {0}", i);
+                    for (int j = 0; j < squareBitmap.Height; j++)
+                    {
+                        Color color = squareBitmap.GetPixel(i, j);
+                        file.WriteLine(color);
+                    }
                 }
-            }
+            };
+
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(String.Concat(projectDir, "\\circle.txt")))
+            {
+                for (int i = 0; i < circleBitmap.Width; i++)
+                {
+                    file.WriteLine("LINE {0}", i);
+                    for (int j = 0; j < circleBitmap.Height; j++)
+                    {
+                        Color color = circleBitmap.GetPixel(i, j);
+                        file.WriteLine(color);
+                    }
+                }
+            };
         }
     }
 }
