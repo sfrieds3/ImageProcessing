@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Text;
 
 namespace ArtificialApplication
@@ -20,7 +21,13 @@ namespace ArtificialApplication
 
         public static void ReadImage()
         {
-            Bitmap bitmap = new Bitmap(@"C:\dev\AI\assets\square\BlackSquare.png");
+            string projectDir = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
+            string remainPath = "\\assets\\square\\BlackSquare.png";
+            string square = String.Concat(projectDir, remainPath);
+
+            Console.WriteLine(square);
+
+            Bitmap bitmap = new Bitmap(square);
 
             for (int i = 0; i < bitmap.Width; i++)
             {
